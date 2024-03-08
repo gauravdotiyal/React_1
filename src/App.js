@@ -5,6 +5,7 @@ import Modal from  './components/Modal'
 
 
 function App() {
+    const [showModal,setModals]=useState(false)
     const [showEvents,setshowevents]=useState(true)
     const [events,setEvents]=useState([
     {title:"mario birthday bash",id:1},
@@ -13,6 +14,7 @@ function App() {
   ])
    
   // console.log(showEvents)
+    //  console.log(showModal)
 
   const handleclick =(id)=>{
      setEvents((prevEvents)=>{
@@ -22,9 +24,13 @@ function App() {
      })
      console.log(id);
   }
+  
 
+  const handleClose=()=>{
+     setModals(false);
+  }
+  
   const abc="All the events in mario kingdom"
-
   return (
     <div className='App'>  
       <Title title="Events in Your Area" subtitle={abc}/>
@@ -44,7 +50,18 @@ function App() {
          <button onClick={()=> handleclick(event.id)}>Delete events</button>
        </div>
       ))}
-       <Modal/>
+       <div>
+        <button onClick={()=>setModals(true)}>Need discount</button>
+       </div>
+      {/* <Modal> 
+        <h2>10% off on buying branded shoe</h2>
+        <p>Use my coupon GAURAV07 at this checkout</p>  
+      </Modal> */}
+
+      {showModal && <Modal handleClose={handleClose}> 
+          <h2>Terms and Coditions</h2>
+          <p>LThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p> 
+      </Modal>}
     </div> 
   );
 }
