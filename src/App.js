@@ -51,7 +51,7 @@ function App() {
     <div className='App'>  
       <Title title="Events in Your Area" subtitle={abc}/> 
 
-      <Title title ="another title" subtitle="another subtitle" /> 
+      {/* <Title title ="another title" subtitle="another subtitle" />  */}
       {showEvents && (<div>
       <button onClick={()=>setshowevents(false)}>Hide events</button>
       </div>)}
@@ -71,7 +71,7 @@ function App() {
         <p>Use my coupon GAURAV07 at this checkout</p>  
       </Modal> */}
 
-      {showModal && <Modal handleClose={handleClose}> 
+      {showModal && <Modal handleClose={handleClose} isSalesModal={true} > 
           <h2>Terms and Coditions</h2>
           <p>LThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p> 
       </Modal>}
