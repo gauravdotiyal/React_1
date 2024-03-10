@@ -2,7 +2,8 @@ import './App.css';
 import { useState} from 'react';
 import Title from  './components/title'
 import Modal from  './components/Modal' 
-
+import EventList from './components/EventList'
+import Clock_func from './components/clock_func';
 
 function App() {
     const [showModal,setModals]=useState(false)
@@ -10,7 +11,7 @@ function App() {
     const [events,setEvents]=useState([
     {title:"mario birthday bash",id:1},
     {title:"browser's live stream",id:2},
-    {title:"race on moo moo farm", id:3} 
+    {title:"race on moo moo farm", id:3}  
   ])
    
   // console.log(showEvents)
@@ -24,18 +25,33 @@ function App() {
      })
      console.log(id);
   }
+    
+
+  //my answer
+  // const handleclick =(className)=>{
+  //    setEvents((prevEvents)=>{
+  //     return prevEvents.filter((event)=>{
+  //     return className!==event.className;
+  //     })
+  //    })
+  //    console.log(id);
+  // }
   
+
+
 
   const handleClose=()=>{
      setModals(false);
   }
+
+  const name1="Gaurav"
   
   const abc="All the events in mario kingdom"
   return (
     <div className='App'>  
-      <Title title="Events in Your Area" subtitle={abc}/>
-     
-      {/* <Title title ="another title" subtitle="another subtitle" />  */}
+      <Title title="Events in Your Area" subtitle={abc}/> 
+
+      <Title title ="another title" subtitle="another subtitle" /> 
       {showEvents && (<div>
       <button onClick={()=>setshowevents(false)}>Hide events</button>
       </div>)}
@@ -44,12 +60,9 @@ function App() {
       <button onClick={()=>setshowevents(true)}>Show events</button>
       </div>)}
 
-      {showEvents && events.map((event,index)=> (
-         <div key={event.id}>
-         <h2>{index} - {event.title}</h2>
-         <button onClick={()=> handleclick(event.id)}>Delete events</button>
-       </div>
-      ))}
+      {showEvents && <EventList events ={events} handleclick={handleclick} /> }
+
+
        <div>
         <button onClick={()=>setModals(true)}>Need discount</button>
        </div>
@@ -62,6 +75,8 @@ function App() {
           <h2>Terms and Coditions</h2>
           <p>LThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p> 
       </Modal>}
+ 
+       <Clock_func name = {name1}/>  
     </div> 
   );
 }
