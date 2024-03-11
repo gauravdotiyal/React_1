@@ -4,6 +4,7 @@ import Title from  './components/title'
 import Modal from  './components/Modal' 
 import EventList from './components/EventList'
 import Clock_func from './components/clock_func';
+import NewEventForm from './components/NewEventForm';
 
 function App() {
     const [showModal,setModals]=useState(false)
@@ -71,9 +72,14 @@ function App() {
         <p>Use my coupon GAURAV07 at this checkout</p>  
       </Modal> */}
 
-      {showModal && <Modal handleClose={handleClose} isSalesModal={true} > 
+      {/* {showModal && <Modal handleClose={handleClose} isSalesModal={true} > 
           <h2>Terms and Coditions</h2>
           <p>LThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p> 
+      </Modal>} */}
+
+
+      {showModal && <Modal handleClose={handleClose} isSalesModal={true} > 
+           <NewEventForm/>
       </Modal>}
  
        <Clock_func name = {name1}/>  
