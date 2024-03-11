@@ -9,14 +9,14 @@ import NewEventForm from './components/NewEventForm';
 function App() {
     const [showModal,setModals]=useState(false)
     const [showEvents,setshowevents]=useState(true)
-    const [events,setEvents]=useState([
-    {title:"mario birthday bash",id:1},
-    {title:"browser's live stream",id:2},
-    {title:"race on moo moo farm", id:3}  
-  ])
+    const [events,setEvents]=useState([ ])
    
-  // console.log(showEvents)
-    //  console.log(showModal)
+    const addEvent=(event)=>{
+         setEvents((prevEvents)=>{
+          return [...prevEvents,event]
+         })
+         setModals(false)
+    }
 
   const handleclick =(id)=>{
      setEvents((prevEvents)=>{
@@ -38,13 +38,7 @@ function App() {
   //    console.log(id);
   // }
   
-
-
-
-  const handleClose=()=>{
-     setModals(false);
-  }
-
+  
   const name1="Gaurav"
   
   const abc="All the events in mario kingdom"
@@ -78,8 +72,8 @@ function App() {
       </Modal>} */}
 
 
-      {showModal && <Modal handleClose={handleClose} isSalesModal={true} > 
-           <NewEventForm/>
+      {showModal && <Modal   isSalesModal={true} > 
+           <NewEventForm addEvent={addEvent}/>
       </Modal>}
  
        <Clock_func name = {name1}/>  
