@@ -64,7 +64,7 @@ function App() {
 
 
        <div>
-        <button onClick={()=>setModals(true)}>Need discount</button>
+        <button onClick={()=>setModals(true)}>Add new Event</button>
        </div>
       {/* <Modal> 
         <h2>10% off on buying branded shoe</h2>
